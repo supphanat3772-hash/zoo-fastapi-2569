@@ -1,0 +1,10 @@
+﻿ข้อ 5 พัฒนา FastAPI จากข้อมูลภาครัฐ Data.go.th
+
+URL FastAPI /docs
+https://zoo-fastapi-2569.vercel.app/docs
+
+URL API
+https://zoo-fastapi-2569.vercel.app/api/zoo-visitors
+
+URL ทดสอบ 1 รายการ
+https://zoo-fastapi-2569.vercel.app/api/zoo-visitors?limit=1
