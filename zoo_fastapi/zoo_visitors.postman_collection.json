@@ -1,0 +1,36 @@
+{
+  "info": {
+    "name": "Zoo Visitors FY2569",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000"
+    }
+  ],
+  "item": [
+    {
+      "name": "GET Zoo Visitors (one row)",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/api/zoo-visitors?limit=1"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+              "const b = pm.response.json();",
+              "pm.test(\"Fiscal year\", () => pm.expect(b.fiscal_year).to.eql(2569));",
+              "pm.test(\"Resource ID\", () => pm.expect(b.source.resource_id).to.eql(\"0ecc96cf-d914-42a1-b184-dbbd013c3c9c\"));",
+              "pm.test(\"Real XLSX statistics\", () => { pm.expect(b.records[0][\"ก.ค. 69\"]).to.eql(43190); pm.expect(b.records[0].source_row).to.eql(2); });"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
